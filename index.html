@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agencia</title>
+
+<style>
+
+/* ===== RESET ===== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== COLORES ===== */
+:root{
+    --crema:#F5F1E8;
+    --blanco:#FAFAF7;
+    --beige:#E8E2D6;
+    --marron:#6B5E4A;
+    --verde:#8A9A5B;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+/* ===== PANTALLA INICIAL ===== */
+.hero-inicio{
+    height:100vh;
+    background:var(--crema);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+.hero-inicio h1{
+    font-size:3rem;
+    color:var(--marron);
+}
+
+.hero-inicio p{
+    margin:15px 0;
+    color:var(--marron);
+}
+
+.btn-entrar{
+    padding:15px 35px;
+    background:var(--marron);
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+}
+
+/* ===== SECCIONES ===== */
+section{
+    padding:80px 10%;
+}
+
+/* ===== HERO ===== */
+.hero{
+    text-align:center;
+    background:var(--blanco);
+}
+.hero{
+    position:relative;
+    height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+/* VIDEO */
+.video-bg{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:0;
+}
+
+/* CAPA OSCURA SUAVE */
+.hero::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(245,241,232,0.7); /* tono crema */
+    z-index:1;
+}
+
+/* CONTENIDO */
+.contenido-hero{
+    position:relative;
+    z-index:2;
+    color:#6B5E4A;
+}
+
+.hero h2{
+    font-size:2.5rem;
+    color:var(--marron);
+}
+
+.hero p{
+    margin:15px 0;
+}
+
+.btn{
+    padding:12px 25px;
+    background:var(--verde);
+    color:white;
+    border-radius:25px;
+    text-decoration:none;
+    display:inline-block;
+    margin:5px;
+}
+
+/* ===== VISUAL ===== */
+.visual{
+    text-align:center;
+    background:var(--crema);
+}
+
+.visual img{
+    width:30%;
+    margin:10px;
+    border-radius:15px;
+}
+
+/* ===== RESULTADOS ===== */
+.resultados{
+    display:flex;
+    justify-content:space-around;
+    background:var(--blanco);
+}
+
+.card{
+    background:var(--crema);
+    padding:30px;
+    border-radius:15px;
+    width:30%;
+    text-align:center;
+}
+
+/* ===== FUNCIONA ===== */
+.funciona{
+    text-align:center;
+    background:var(--crema);
+}
+
+.pasos{
+    display:flex;
+    justify-content:space-around;
+    margin-top:40px;
+}
+
+.paso{
+    width:22%;
+}
+
+/* ===== PAQUETES ===== */
+
+/* SECCION */
+.planes{
+    background:#FAFAF7;
+    text-align:center;
+    padding:80px 10%;
+    background: linear-gradient(
+        135deg,
+        #F5F1E8,
+        #E8E2D6,
+        #FAFAF7
+    );
+}
+
+
+
+.sub{
+    margin:10px 0 30px;
+    color:#6B5E4A;
+}
+
+/* TOGGLE */
+.toggle{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    margin-bottom:40px;
+}
+
+#switch{
+    display:none;
+}
+
+.switch{
+    width:50px;
+    height:25px;
+    background:#ccc;
+    border-radius:20px;
+    position:relative;
+    cursor:pointer;
+}
+
+.switch::before{
+    content:"";
+    position:absolute;
+    width:20px;
+    height:20px;
+    background:white;
+    border-radius:50%;
+    top:2.5px;
+    left:3px;
+    transition:0.3s;
+}
+
+#switch:checked + .switch{
+    background:#8A9A5B;
+}
+
+#switch:checked + .switch::before{
+    transform:translateX(24px);
+}
+
+/* CONTENEDOR */
+.planes-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+/* TARJETAS */
+/* TARJETAS GLASS */
+.plan-card{
+    background: rgba(255, 255, 255, 0.4); /* transparencia */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* safari */
+    
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    
+    padding:30px;
+    border-radius:20px;
+    width:280px;
+    text-align:left;
+
+    box-shadow:0 8px 30px rgba(0,0,0,0.08);
+
+    transition: all 0.4s ease;
+    position:relative;
+}
+
+/* EFECTO HOVER TIPO APPLE */
+.plan-card:hover{
+    transform: translateY(-12px) scale(1.04);
+    box-shadow:0 20px 50px rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.5);
+}
+
+/* DESTACADO */
+.destacado{
+    background:#E8E2D6;
+    transform:scale(1.05);
+}
+
+/* TAG */
+.tag{
+    position:absolute;
+    top:-12px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#8A9A5B;
+    color:white;
+    padding:5px 15px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+/* TITULOS */
+.plan-card h3{
+    color:#6B5E4A;
+    font-size:22px;
+}
+
+/* PRECIO */
+.precio{
+    font-size:26px;
+    font-weight:bold;
+    margin:15px 0;
+    color:#6B5E4A;
+}
+
+/* OCULTAR ANUAL */
+.anual{
+    display:none;
+}
+
+/* SWITCH FUNCIONA SIN JS */
+#switch:checked ~ .planes-container .mensual{
+    display:none;
+}
+
+#switch:checked ~ .planes-container .anual{
+    display:block;
+}
+
+/* LISTA */
+.plan-card ul{
+    list-style:none;
+    padding:0;
+}
+
+.plan-card ul li{
+    margin-bottom:10px;
+    color:#6B5E4A;
+}
+
+/* BOTON */
+.btn-plan{
+    display:block;
+    text-align:center;
+    padding:12px;
+    background:#6B5E4A;
+    color:white;
+    border-radius:25px;
+    margin-top:20px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn-plan:hover{
+    background:#8A9A5B;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .planes-container{
+        flex-direction:column;
+        align-items:center;
+    }
+}
+/* ===== SOBRE ===== */
+.sobre{
+    text-align:center;
+    background:var(--crema);
+}
+
+.btn-vermas{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#6B5E4A;
+    color:white;
+    border-radius:25px;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn-vermas:hover{
+    background:#8A9A5B;
+    transform:translateY(-3px);
+}
+
+/* ===== FORMULARIO ===== */
+.contacto{
+    text-align:center;
+    background:var(--blanco);
+}
+
+.formulario{
+    max-width:500px;
+    margin:40px auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea{
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #ddd;
+    background:var(--crema);
+}
+
+.formulario textarea{
+    min-height:120px;
+}
+
+.formulario button{
+    padding:15px;
+    border:none;
+    background:var(--marron);
+    color:white;
+    border-radius:25px;
+    cursor:pointer;
+}
+
+#estado{
+    margin-top:10px;
+    color:var(--marron);
+}
+
+.tiktok-section{
+background-color: #6B5E4A;
+
+}
+
+.tiktok-scroll{
+    height:100vh; /* ocupa toda la pantalla */
+    overflow-y:scroll;
+
+    scroll-snap-type:y mandatory;
+}
+
+/* CADA VIDEO OCUPA TODA LA PANTALLA */
+.video-card{
+    height:100vh;
+    scroll-snap-align:start;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* VIDEO MÁS GRANDE */
+.video-card video{
+    width:350px;
+    height:600px;
+    object-fit:cover;
+    border-radius:20px;
+}
+
+.tiktok-scroll::-webkit-scrollbar{
+    display:none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+
+    .visual img{
+        width:90%;
+    }
+
+    .resultados, .pasos, .cards{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .card, .paso, .plan{
+        width:80%;
+        margin-bottom:20px;
+    }
+
+
+    .paso img{
+    width:100%;
+    max-width:180px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+/* HOVER MÁS SUAVE */
+.paso img:hover{
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+@keyframes flotar{
+    0%{ transform: translateY(0px); }
+    50%{ transform: translateY(-8px); }
+    100%{ transform: translateY(0px); }
+}.paso img{
+    width:100%;
+    max-width:180px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- PANTALLA INICIAL -->
+<section class="hero-inicio">
+    <img src="logo png.png" height="'200">
+    <p>Convierte tus redes en clientes reales</p>
+    <a href="#home" class="btn-entrar">Entrar</a>
+</section>
+
+<!-- HOME -->
+<section id="home" class="hero">
+
+    <video autoplay muted loop playsinline class="video-bg">
+        <source src="video home.mp4" type="video/mp4">
+    </video>
+
+    <div class="contenido-hero">
+        <h2>Haz crecer tu negocio con redes sociales</h2>
+        <p>Visitas en ventas Solo con nosotros.</p>
+
+        <a href="#planes" class="btn">Ver planes</a>
+        <a href="https://wa.me/+18493893262" class="btn">WhatsApp</a>
+    </div>
+
+</section>
+
+<!-- VISUAL -->
+<section class="visual">
+    <h2>Resultados reales</h2>
+    <img src="global refri autos.jpg">
+    <img src="global reffri autos feed.jpg">
+    <img src="sbg.jpg">
+    <img src="sbg feed.jpg">
+    <img src="applebees.jpg">
+    <img src="applebees feed.jpg">
+</section>
+
+<!-- RESULTADOS -->
+<section class="resultados">
+    <div class="card"><h3>+20K</h3><p>Vistas</p></div>
+    <div class="card"><h3>+30%</h3><p>Clientes</p></div>
+    <div class="card"><h3>+Ventas</h3><p>Resultados</p></div>
+</section>
+
+<!-- FUNCIONA -->
+<section class="funciona">
+    <h2>¿Cómo funciona?</h2>
+    <div class="pasos">
+        <div class="paso"><img src="analizamos.png" height="500"></div>
+        <div class="paso"><img src="creamos.png" height="500"> </div>
+        <div class="paso"><img src="publicamos.png" height="500"></div>
+        <div class="paso"><img src="convertimos.png" height="500"></div>
+    </div>
+</section>
+
+<!-- PAQUETES -->
+<section id="planes" class="planes">
+
+    <h2>Nuestros planes</h2>
+    <p class="sub">Convierte tus redes en una máquina de clientes</p>
+
+    <!-- TOGGLE -->
+    <div class="toggle">
+        <span>Mensual</span>
+
+        <input type="checkbox" id="switch">
+        <label for="switch" class="switch"></label>
+
+        <span>Anual (-20%)</span>
+    </div>
+
+    <div class="planes-container">
+
+        <!-- BASICO -->
+        <div class="plan-card">
+            <h3>Básico</h3>
+
+            <p class="precio mensual">RD$8,000</p>
+            <p class="precio anual">RD$6,400</p>
+
+            <ul>
+                <li>✔ Presencia profesional</li>
+                <li>✔ 8 publicaciones</li>
+                <li>✔ 4 reels</li>
+                <li>✔ Optimización de perfil</li>
+            </ul>
+
+            <a href="#" class="btn-plan">Empezar</a>
+        </div>
+
+        <!-- CRECIMIENTO -->
+        <div class="plan-card destacado">
+            <span class="tag">Más vendido</span>
+
+            <h3>Crecimiento</h3>
+
+            <p class="precio mensual">RD$15,000</p>
+            <p class="precio anual">RD$12,000</p>
+
+            <ul>
+                <li>✔ Más alcance y clientes</li>
+                <li>✔ 12-16 publicaciones</li>
+                <li>✔ 8 reels</li>
+                <li>✔ Publicidad (Ads)</li>
+                <li>✔ Estrategia mensual</li>
+            </ul>
+
+            <a href="#" class="btn-plan">Quiero crecer</a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="plan-card">
+            <h3>Premium</h3>
+
+            <p class="precio mensual">RD$30,000</p>
+            <p class="precio anual">RD$24,000</p>
+
+            <ul>
+                <li>✔ Dominio total</li>
+                <li>✔ Contenido profesional</li>
+                <li>✔ Gestión completa</li>
+                <li>✔ Publicidad avanzada</li>
+                <li>✔ Página web</li>
+            </ul>
+
+            <a href="#" class="btn-plan">Escalar</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SOBRE -->
+<section class="sobre">
+    <h2>Sobre nosotros</h2>
+   
+    <a href="sobrenosotros.html" class="btn-vermas">Ver más</a>
+</section>
+
+<!-- FORMULARIO -->
+<section class="contacto">
+    <h2>Trabaja con nosotros</h2>
+    <p>Déjanos tus datos</p>
+
+    <form id="formulario" class="formulario">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="text" name="negocio" placeholder="Tu negocio" required>
+        <input type="email" name="email" placeholder="Tu correo" required>
+
+        <select name="servicio" required>
+            <option value="">Servicio</option>
+            <option>Redes sociales</option>
+            <option>Publicidad</option>
+            <option>Contenido</option>
+            <option>Todo</option>
+        </select>
+
+        <textarea name="mensaje" placeholder="Cuéntanos..." required></textarea>
+
+        <button type="submit">Enviar</button>
+        <p id="estado"></p>
+    </form>
+</section>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("xL5iCOWN52sMNzDT_");
+})();
+
+document.getElementById("formulario").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    emailjs.sendForm("service_8qo62pb", "template_eqdax1c", this)
+    .then(function(){
+        document.getElementById("estado").innerText = "Mensaje enviado ✅";
+    }, function(){
+        document.getElementById("estado").innerText = "Error al enviar ❌";
+    });
+
+    this.reset();
+});
+</script>
+
+<section class="tiktok-section">
+
+    <center><h2>¿Cansado de promos aburridas?</h2>
+    <p>Sí, nosotros también.</p>
+    <h3>Haz promos como estas con nosotros</h3>
+    </center>
+    <div class="tiktok-scroll">
+
+        <div class="video-card">
+            <video src="carlos promo.mov" autoplay muted loop playsinline></video>
+        </div>
+
+        <div class="video-card">
+            <video src="victor promo.mov" autoplay muted loop playsinline></video>
+        </div>
+
+        <div class="video-card">
+            <video src="miko promo.mov" autoplay muted loop playsinline></video>
+        </div>
+
+           <div class="video-card">
+            <video src="musa promocion.mp4" autoplay muted loop playsinline></video>
+        </div>
+
+
+    </div>
+
+</section>
+
+</body>
+</html>
