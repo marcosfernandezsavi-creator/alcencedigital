@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sobre Nosotros</title>
+
+<link rel="stylesheet" href="sobre.css">
+
+</head>
+
+<body>
+<style>
+
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#b1b1a3;
+    body{
+    font-family: 'Poppins', sans-serif;
+}
+}
+
+/* HERO */
+.hero-sobre{
+    height:50vh;
+    background:#F5F1E8;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.hero-sobre h1{
+    font-size:3rem;
+    color:#6B5E4A;
+}
+
+
+
+.video-sobre{
+    position:relative;
+    width:100%;
+    height:60vh;
+    overflow:hidden;
+}
+
+.video-sobre video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* CAPA OSCURA */
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    color:white;
+}
+
+.overlay h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    letter-spacing: 1px;
+}
+
+.overlay p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+}
+
+/* CONTENIDO */
+.contenido{
+    padding:60px 10%;
+}
+
+.bloque{
+    margin-bottom:40px;
+}
+
+.bloque h2{
+    color:#6B5E4A;
+}
+
+.bloque p, .bloque li{
+    color:#6B5E4A;
+}
+
+/* CEO */
+.ceo{
+    display:flex;
+    justify-content:center;
+    padding:80px 0;
+}
+
+/* TARJETA FLOTANTE */
+.card-ceo{
+    background:rgba(255,255,255,0.5);
+    backdrop-filter:blur(10px);
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card-ceo:hover{
+    transform:translateY(-10px);
+}
+
+/* IMAGEN */
+.card-ceo img{
+    width: 250px;
+    height: 250px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+}
+
+.btn-back{
+    position:fixed;
+    top:20px;
+    left:20px;
+    z-index:1000;
+
+    width:50px;
+    height:50px;
+
+    background:rgba(255,255,255,0.4);
+    backdrop-filter:blur(10px);
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+    transition:0.3s;
+}
+
+/* IMAGEN */
+.btn-back img{
+    width:24px;
+    height:24px;
+}
+
+/* HOVER */
+.btn-back:hover{
+    transform:scale(1.1);
+    background:rgba(255,255,255,0.6);
+}
+
+
+</style>
+
+<section class="video-sobre">
+    <video autoplay muted loop playsinline>
+        <source src="video mrbeast para sobre nosotros.mp4" type="video/mp4">
+    </video>
+
+    <div class="overlay">
+        <h2>Así hacemos crecer tu negocio</h2>
+        <p>Contenido que atrae clientes reales</p>
+    </div>
+</section>
+
+<section class="contenido">
+    <center> <img src="logo png.png"></center>
+
+    <div class="bloque">
+        <h2>Nuestra historia</h2>
+        <p>Un joven cansado de ver tanta promo aburrida y sin ningun tipo de impacto para las empresas decidio crear su plan de marketing digital para ayudar a esas empresas que estan estancadas en ventas o alcanze a las personas en redes sociale o tal vez ni las tengan de ahi nacio Alcance Digital una logistica que te asegura un incremento en tu visitas al negocio atraves de las redes sociales creando un plan de promociones que se identifiquen con el cliente ideal para crear con tu empresa un plan de marketing que se acomode con tu negocio y asi convertir visitas en visitantes.</p>
+    </div>
+
+    <div class="bloque">
+        <h2>Visión</h2>
+        <p>Ser la agencia líder en crecimiento digital para negocios locales en República Dominicana.
+        <br><br>Ayudar a los pequeños negocios y empresas a tener un alcance en redes sociales.<br><br>
+        Llegar a todas esas empresas que no tienen el conocimiento de redes sociales<br><br>
+        Encontrar la promo ideal para tu negocio
+        </p>
+    </div>
+
+    <div class="bloque">
+        <h2>Valores</h2>
+        <ul>
+            <li>✔ Jesus Primero</li>
+            <li>✔ Humildad </li>
+            <li>✔ Compromiso</li>
+            <li>✔ Creatividad</li>
+            <li>✔ Resultados</li>
+            <li>✔ Transparencia</li>
+        </ul>
+    </div>
+
+</section>
+
+<!-- CEO CARD -->
+<section class="ceo">
+
+    <div class="card-ceo">
+        <img src="ceo foto.JPG" alt="CEO">
+        <h3>Marcos Fernandez</h3>
+        <p>CEO & Fundador</p>
+    </div>
+
+</section>
+<a href="index.html" class="btn-back">
+    <img src="back button.png" height="55" alt="Volver">
+</a>
+
+</body>
+</html>
